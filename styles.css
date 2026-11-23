@@ -1,0 +1,598 @@
+/* Sleek Editorial Stylesheet: White, Dark Forest Green, Charcoal Black & Cool Gray */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #ffffff;
+  color: #1c211e; /* Deep charcoal black */
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .site-title, .hero-banner-title {
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* 1. Sleek Top Brand Bar (White background, bold forest green & black title) */
+header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e6e4;
+}
+
+.header-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 28px 20px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #0b3d24; /* Deep Forest Green */
+  line-height: 1.15;
+}
+
+.site-subtitle {
+  margin: 4px 0 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #5c6660; /* Cool slate gray */
+}
+
+/* 2. Full-Width Forest Green Navigation Bar with Roomy Tabs */
+nav {
+  background-color: #0b3d24; /* Signature Dark Forest Green */
+  width: 100%;
+}
+
+nav ul {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+nav a {
+  display: inline-block;
+  padding: 16px 22px; /* Generous spacing so tabs never look cramped */
+  color: #e8f0ec;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 3px solid transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #145434;
+  color: #ffffff;
+}
+
+nav a.active {
+  background-color: #145434;
+  color: #ffffff;
+  border-bottom: 3px solid #ffffff;
+}
+
+/* 3. Full-Width Hero Banner with Bottom-Left Overlay Text (Inspired by GMU layout) */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  background-color: #141715;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+/* Subtle dark gradient at bottom so white text is always razor-sharp */
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 20, 15, 0.82) 0%,
+    rgba(10, 20, 15, 0.28) 55%,
+    rgba(10, 20, 15, 0.08) 100%
+  );
+}
+
+.hero-banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 36px 28px;
+}
+
+.hero-banner-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 2.6rem;
+  font-weight: 800;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+.hero-banner-caption {
+  margin: 6px 0 0 0;
+  color: #e2e8e4;
+  font-size: 1.05rem;
+  max-width: 640px;
+}
+
+/* 4. Main Content Container */
+main {
+  max-width: 1080px;
+  margin: 44px auto;
+  padding: 0 28px;
+}
+
+.lead-intro {
+  font-size: 1.18rem;
+  color: #252b27;
+  max-width: 860px;
+  margin-bottom: 36px;
+  line-height: 1.75;
+}
+
+.section-heading {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #111613;
+  margin: 36px 0 18px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e4e8e6;
+}
+
+/* Editorial Cards & Grids */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: #f7f9f8; /* Soft cool gray surface */
+  border: 1px solid #dfe5e2;
+  border-top: 4px solid #0b3d24; /* Forest green top accent */
+  border-radius: 6px;
+  padding: 26px;
+}
+
+.card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0b3d24;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #0b3d24;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons & Form Inputs */
+button,
+select,
+input[type="text"] {
+  font-family: "Inter", sans-serif;
+  font-size: 0.92rem;
+  padding: 10px 16px;
+  border-radius: 5px;
+  border: 1px solid #c5ceca;
+}
+
+button {
+  background-color: #0b3d24;
+  color: #ffffff;
+  font-weight: 600;
+  border: 1px solid #0b3d24;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #165937;
+}
+
+button.secondary-btn {
+  background-color: #ffffff;
+  color: #1c211e;
+  border: 1px solid #b8c2bd;
+}
+
+button.secondary-btn:hover {
+  background-color: #eef2f0;
+}
+
+
+
+/* Dynamic Style Toolbar (Requirement 3b) */
+.style-toolbar {
+  background-color: #f4f6f5;
+  border: 1px solid #dce2df;
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Priority Poster Builder (Requirements 3a & 3b) */
+.poster-controls {
+  background-color: #f7f9f8;
+  border: 1px solid #dce2df;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 28px;
+}
+
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.poster-canvas {
+  background-color: #ffffff;
+  border: 3px solid #0b3d24;
+  border-radius: 8px;
+  padding: 30px;
+  min-height: 280px;
+  color: #1c211e;
+}
+
+.priority-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0;
+}
+
+.priority-item {
+  background-color: #f4f6f5;
+  border: 1px solid #d3dbd7;
+  border-left: 4px solid #0b3d24;
+  border-radius: 5px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: #1c211e;
+}
+
+.priority-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.sticker-tray {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed #bcc5c0;
+  font-size: 1.65rem;
+  min-height: 46px;
+}
+
+/* Rollover Image & Animated Spotlight (Requirements 3c & 3d) */
+.media-showcase {
+  background-color: #f7f9f8;
+  border: 1px solid #dce2df;
+  border-radius: 8px;
+  padding: 26px;
+  margin-bottom: 28px;
+}
+
+.rollover-img {
+  max-width: 100%;
+  width: 440px;
+  height: auto;
+  border-radius: 6px;
+  border: 2px solid #0b3d24;
+  display: block;
+}
+
+.hover-mood-box {
+  background-color: #f7f9f8;
+  border: 2px solid #0b3d24;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 28px;
+  color: #1c211e;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.spotlight-box {
+  width: 260px;
+  opacity: 0.65;
+  background-color: #ffffff;
+  border: 2px solid #0b3d24;
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 16px;
+  overflow: hidden;
+}
+
+.spotlight-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Centered Editorial Poster Layout (Inspired by clean centered showcase layout) */
+.poster-hero {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 32px auto;
+  padding: 12px 10px;
+}
+
+.poster-pill {
+  display: inline-block;
+  background-color: #eef3f0;
+  color: #0b3d24;
+  border: 1px solid #c9d6cf;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.poster-hero h2 {
+  font-size: 2.5rem;
+  line-height: 1.15;
+  margin: 0 0 14px 0;
+  color: #111613;
+}
+
+.poster-hero p {
+  font-size: 1.05rem;
+  color: #48524c;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+/* Horizontal row of clickable keyword / vibe cards */
+.keyword-strip {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom: 28px;
+}
+
+.keyword-card {
+  min-width: 155px;
+  background-color: #f7f9f8;
+  border: 1px solid #dce2df;
+  border-bottom: 4px solid #0b3d24;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: left;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.keyword-card:hover {
+  background-color: #eef3f0;
+}
+
+.keyword-emoji {
+  font-size: 1.6rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.keyword-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #111613;
+  display: block;
+}
+
+.keyword-tag {
+  font-size: 0.8rem;
+  color: #5c6660;
+}
+
+.keyword-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.keyword-chip {
+  background-color: #0b3d24;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* Floated images with text wrap for editorial storytelling */
+.story-section {
+  overflow: hidden; /* Keeps floated images contained cleanly inside the section */
+  margin-bottom: 32px;
+}
+
+.float-right-card {
+  float: right;
+  width: 260px;
+  margin: 4px 0 16px 24px;
+  background-color: #f7f9f8;
+  border: 1px solid #dce2df;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.float-left-card {
+  float: left;
+  width: 260px;
+  margin: 4px 24px 16px 0;
+  background-color: #f7f9f8;
+  border: 1px solid #dce2df;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.float-right-card img,
+.float-left-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
+
+.float-caption {
+  font-size: 0.82rem;
+  color: #525a55;
+  margin: 8px 0 0 0;
+  line-height: 1.4;
+}
+
+.sponsor-link-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 11px 20px;
+  background-color: #0b3d24;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 5px;
+}
+
+.sponsor-link-btn:hover {
+  background-color: #165937;
+}
+
+@media (max-width: 640px) {
+  .float-right-card,
+  .float-left-card {
+    float: none;
+    width: 100%;
+    margin: 16px 0;
+  }
+}
+
+/* Side-by-Side "This or That" Studio Layout */
+.tot-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.tot-question-card {
+  background-color: #f7f9f8;
+  border: 1px solid #dce2df;
+  border-top: 4px solid #0b3d24;
+  border-radius: 8px;
+  padding: 28px;
+}
+
+.round-badge {
+  display: inline-block;
+  background-color: #0b3d24;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.tot-choice-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.tot-option-btn {
+  width: 100%;
+  text-align: left;
+  padding: 16px 18px;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: #ffffff;
+  color: #111613;
+  border: 2px solid #c5ceca;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.tot-option-btn:hover {
+  border-color: #0b3d24;
+  background-color: #eef3f0;
+}
+
+.tot-divider {
+  border: 0;
+  border-top: 1px solid #dce2df;
+  margin: 20px 0;
+}
+
+@media (max-width: 820px) {
+  .tot-split-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sleek Dark Charcoal & Forest Green Footer */
+footer {
+  background-color: #141715;
+  color: #d5dcd8;
+  border-top: 4px solid #0b3d24;
+  text-align: center;
+  padding: 24px 20px;
+  margin-top: 56px;
+  font-size: 0.9rem;
+}

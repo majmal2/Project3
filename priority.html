@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Mason Journey - Career Priorities</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div>
+        <h1 class="site-title">My Mason Journey</h1>
+        <p class="site-subtitle">George Mason University &bull; BSIT Portfolio</p>
+      </div>
+    </div>
+
+    <nav aria-label="Primary Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses &amp; Stack</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="capstone.html">Capstone</a></li>
+        <li><a href="priority.html" class="active">Priority</a></li>
+        <li><a href="campus.html">Campus &amp; Reflection</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Centered conversational intro -->
+    <section class="poster-hero" aria-label="Career Tradeoffs Introduction">
+      <span class="poster-pill">TIME TO KNOW MORE ABOUT YOU</span>
+      <h2>What matters more to you in your career?</h2>
+      <p>
+        Preparing to graduate from George Mason made me think a lot about what I actually want
+        out of my career. Pick your side on the left, then rank your choices from #1 down on the
+        right.
+      </p>
+    </section>
+
+    <!-- Two-Column Side-by-Side Split Layout -->
+    <section class="tot-split-grid" aria-label="Career Tradeoff Questions and Live Rankings">
+      <!-- LEFT COLUMN: One career tradeoff question at a time -->
+      <div class="tot-question-card" id="question-card">
+        <span class="round-badge" id="round-indicator">Question 1 of 8</span>
+        <h3 id="question-prompt" style="margin: 0; font-size: 1.4rem; color: #111613;">
+          What matters more to you in your career: competitive pay or meaningful work?
+        </h3>
+
+        <div class="tot-choice-stack">
+          <button type="button" class="tot-option-btn" id="option-a-btn">
+            Competitive pay
+          </button>
+          <button type="button" class="tot-option-btn" id="option-b-btn">
+            Meaningful work
+          </button>
+        </div>
+
+        <div class="control-row">
+          <button type="button" id="prev-round-btn" class="secondary-btn">&larr; Previous</button>
+          <button type="button" id="skip-round-btn" class="secondary-btn">Skip &rarr;</button>
+          <button type="button" id="restart-btn" class="secondary-btn">Restart</button>
+        </div>
+
+        <hr class="tot-divider">
+
+        <!-- Add custom career priority (Requirement 3a) -->
+        <div class="control-row" style="margin-bottom: 0;">
+          <label for="custom-pick-input" style="width: 100%;"><strong>Add your own career priority:</strong></label>
+          <input type="text" id="custom-pick-input" placeholder="e.g., Supportive team culture...">
+          <button type="button" id="add-custom-btn">Add</button>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Live Ranked Priorities + Dynamic Styles (Requirements 3a & 3b) -->
+      <div class="poster-canvas" id="results-card">
+        <div class="control-row" style="justify-content: space-between;">
+          <h2 id="results-heading" style="margin: 0; font-size: 1.45rem;">Your Ranked Career Priorities</h2>
+          <button type="button" id="clear-all-btn" class="secondary-btn">Clear</button>
+        </div>
+
+        <p id="results-subtitle" style="margin-top: 6px; font-size: 0.92rem;">
+          Use <strong>Up</strong> and <strong>Down</strong> to rank what matters most at #1, or <strong>Delete</strong> to remove:
+        </p>
+
+        <!-- Dynamic style controls for the ranking card (Requirement 3b) -->
+        <div class="control-row" style="margin-top: 12px;">
+          <button type="button" id="theme-forest-btn" class="secondary-btn">Forest Green</button>
+          <button type="button" id="theme-black-btn" class="secondary-btn">Charcoal</button>
+           <button type="button" id="theme-white-btn" class="secondary-btn">White</button>
+        </div>
+
+        <ul id="ranked-picks-list" class="priority-list"></ul>
+      </div>
+    </section>
+
+    <!-- Requirement 3c: Rollover / Hover effect using mouseover and mouseout -->
+    <section id="vibe-hover-box" class="hover-mood-box" aria-label="Career Outlook Hover Preview">
+      <h3>Hover Preview: Campus Roots to Career Launch</h3>
+      <p id="vibe-hover-caption">
+        Move your mouse over this box to switch from Mason Campus, then move your cursor away to return.
+      </p>
+      <img
+        id="vibe-hover-img"
+        class="rollover-img"
+        src="gmu-campus-1.jpg"
+        alt="George Mason University campus and career milestone preview"
+      >
+    </section>
+  </main>
+
+  <footer>
+    <p>My Mason Journey &bull; IT 331 Project 3 Portfolio</p>
+  </footer>
+
+  <script>
+    // Your 8 career tradeoff questions
+    const rounds = [
+      {
+        prompt: "What matters more to you in your career: competitive pay or meaningful work?",
+        optionA: "Competitive pay",
+        optionB: "Meaningful work"
+      },
+      {
+        prompt: "What matters more to you in your career: job stability or exciting projects?",
+        optionA: "Job stability",
+        optionB: "Exciting projects"
+      },
+      {
+        prompt: "What matters more to you in your career: earning top dollar or having low stress?",
+        optionA: "Earning top dollar",
+        optionB: "Having low stress"
+      },
+      {
+        prompt: "What matters more to you in your career: professional respect or learning new skills?",
+        optionA: "Professional respect",
+        optionB: "Learning new skills"
+      },
+      {
+        prompt: "What matters more to you in your career: clear goals & expectations or leadership opportunities?",
+        optionA: "Clear goals & expectations",
+        optionB: "Leadership opportunities"
+      },
+      {
+        prompt: "What matters more to you in your career: higher take-home pay or long-term retirement & health security?",
+        optionA: "Higher take-home pay",
+        optionB: "Long-term retirement & health security"
+      },
+      {
+        prompt: "What matters more to you in your career: being valued for your ideas or being rewarded for your output?",
+        optionA: "Being valued for your ideas",
+        optionB: "Being rewarded for your output"
+      },
+      {
+        prompt: "What matters more to you in your career: freedom to set your own methods or clear step-by-step guidance?",
+        optionA: "Freedom to set your own methods",
+        optionB: "Clear step-by-step guidance"
+      }
+    ];
+
+    // Track current question index (0 through 7)
+    let currentRoundIndex = 0;
+
+    // Left card references
+    const roundIndicator = document.getElementById("round-indicator");
+    const questionPrompt = document.getElementById("question-prompt");
+    const optionABtn = document.getElementById("option-a-btn");
+    const optionBBtn = document.getElementById("option-b-btn");
+    const prevRoundBtn = document.getElementById("prev-round-btn");
+    const skipRoundBtn = document.getElementById("skip-round-btn");
+    const restartBtn = document.getElementById("restart-btn");
+    const customPickInput = document.getElementById("custom-pick-input");
+    const addCustomBtn = document.getElementById("add-custom-btn");
+
+    // Right card references (Requirements 3a & 3b)
+    const resultsCard = document.getElementById("results-card");
+    const resultsHeading = document.getElementById("results-heading");
+    const resultsSubtitle = document.getElementById("results-subtitle");
+    const rankedPicksList = document.getElementById("ranked-picks-list");
+    const clearAllBtn = document.getElementById("clear-all-btn");
+
+    // Dynamic style controls (Requirement 3b)
+    const themeWhiteBtn = document.getElementById("theme-white-btn");
+    const themeForestBtn = document.getElementById("theme-forest-btn");
+    const themeBlackBtn = document.getElementById("theme-black-btn");
+
+    // Track font size inside the results card
+    let resultsFontSize = 16;
+
+    // Hover box references (Requirement 3c)
+    const vibeHoverBox = document.getElementById("vibe-hover-box");
+    const vibeHoverImg = document.getElementById("vibe-hover-img");
+    const vibeHoverCaption = document.getElementById("vibe-hover-caption");
+
+    // Render the active career question on the left card
+    function renderCurrentRound() {
+      if (currentRoundIndex < rounds.length) {
+        const activeRound = rounds[currentRoundIndex];
+        roundIndicator.textContent = "Question " + (currentRoundIndex + 1) + " of " + rounds.length;
+        questionPrompt.textContent = activeRound.prompt;
+        optionABtn.textContent = activeRound.optionA;
+        optionBBtn.textContent = activeRound.optionB;
+        optionABtn.style.display = "block";
+        optionBBtn.style.display = "block";
+      } else {
+        roundIndicator.textContent = "All 8 Questions Complete!";
+        questionPrompt.textContent = "Now use Up and Down on the right to rank your #1 career priority, or click Restart.";
+        optionABtn.style.display = "none";
+        optionBBtn.style.display = "none";
+      }
+    }
+
+    // Refresh #1, #2, #3 rank numbers whenever items are added, reordered, or deleted
+    function updateRankLabels() {
+      const items = rankedPicksList.querySelectorAll(".priority-item");
+      for (let i = 0; i < items.length; i++) {
+        const rankSpan = items[i].querySelector(".rank-number");
+        rankSpan.textContent = "#" + (i + 1) + " ";
+      }
+    }
+
+    // Dynamically create a ranked career priority item with Up, Down, and Delete buttons (Requirement 3a)
+    function addRankedPick(choiceText) {
+      const listItem = document.createElement("li");
+      listItem.className = "priority-item";
+
+      const textSpan = document.createElement("span");
+      const rankStrong = document.createElement("strong");
+      rankStrong.className = "rank-number";
+      const labelNode = document.createTextNode(choiceText);
+
+      textSpan.appendChild(rankStrong);
+      textSpan.appendChild(labelNode);
+
+      const btnGroup = document.createElement("div");
+      btnGroup.className = "priority-actions";
+
+      const upBtn = document.createElement("button");
+      upBtn.type = "button";
+      upBtn.className = "secondary-btn";
+      upBtn.textContent = "Up";
+
+      const downBtn = document.createElement("button");
+      downBtn.type = "button";
+      downBtn.className = "secondary-btn";
+      downBtn.textContent = "Down";
+
+      const deleteBtn = document.createElement("button");
+      deleteBtn.type = "button";
+      deleteBtn.textContent = "Delete";
+
+      // Move item higher in rank if an earlier sibling exists
+      upBtn.addEventListener("click", function () {
+        const prev = listItem.previousElementSibling;
+        if (prev !== null) {
+          rankedPicksList.insertBefore(listItem, prev);
+          updateRankLabels();
+        }
+      });
+
+      // Move item lower in rank if a later sibling exists
+      downBtn.addEventListener("click", function () {
+        const next = listItem.nextElementSibling;
+        if (next !== null) {
+          rankedPicksList.insertBefore(next, listItem);
+          updateRankLabels();
+        }
+      });
+
+      // Remove item from the DOM
+      deleteBtn.addEventListener("click", function () {
+        rankedPicksList.removeChild(listItem);
+        updateRankLabels();
+      });
+
+      btnGroup.appendChild(upBtn);
+      btnGroup.appendChild(downBtn);
+      btnGroup.appendChild(deleteBtn);
+
+      listItem.appendChild(textSpan);
+      listItem.appendChild(btnGroup);
+      rankedPicksList.appendChild(listItem);
+
+      updateRankLabels();
+    }
+
+    // Option A click: add choice to ranked list and advance
+    optionABtn.addEventListener("click", function () {
+      addRankedPick(optionABtn.textContent);
+      currentRoundIndex++;
+      renderCurrentRound();
+    });
+
+    // Option B click: add choice to ranked list and advance
+    optionBBtn.addEventListener("click", function () {
+      addRankedPick(optionBBtn.textContent);
+      currentRoundIndex++;
+      renderCurrentRound();
+    });
+
+    // Go back one question
+    prevRoundBtn.addEventListener("click", function () {
+      if (currentRoundIndex > 0) {
+        currentRoundIndex--;
+        renderCurrentRound();
+      }
+    });
+
+    // Skip forward one question
+    skipRoundBtn.addEventListener("click", function () {
+      if (currentRoundIndex < rounds.length) {
+        currentRoundIndex++;
+        renderCurrentRound();
+      }
+    });
+
+    // Restart at Question 1
+    restartBtn.addEventListener("click", function () {
+      currentRoundIndex = 0;
+      renderCurrentRound();
+    });
+
+    // Add custom career priority
+    addCustomBtn.addEventListener("click", function () {
+      const cleanedValue = customPickInput.value.trim();
+      if (cleanedValue !== "") {
+        addRankedPick(cleanedValue);
+        customPickInput.value = "";
+      }
+    });
+
+    // Clear all ranked items
+    clearAllBtn.addEventListener("click", function () {
+      while (rankedPicksList.firstChild !== null) {
+        rankedPicksList.removeChild(rankedPicksList.firstChild);
+      }
+    });
+
+    // Dynamic styles for the right-side ranking card (Requirement 3b)
+    themeWhiteBtn.addEventListener("click", function () {
+      resultsFontSize = 16;
+      resultsCard.style.backgroundColor = "#ffffff";
+      resultsCard.style.borderColor = "#0b3d24";
+      resultsCard.style.fontSize = "16px";
+      resultsHeading.style.color = "#111613";
+      resultsSubtitle.style.color = "#48524c";
+    });
+
+    themeForestBtn.addEventListener("click", function () {
+      resultsCard.style.backgroundColor = "#0b3d24";
+      resultsCard.style.borderColor = "#141715";
+      resultsHeading.style.color = "#ffffff";
+      resultsSubtitle.style.color = "#e2e8e4";
+    });
+
+    themeBlackBtn.addEventListener("click", function () {
+      resultsCard.style.backgroundColor = "#141715";
+      resultsCard.style.borderColor = "#525a55";
+      resultsHeading.style.color = "#ffffff";
+      resultsSubtitle.style.color = "#d5dcd8";
+    });
+
+
+
+    // Rollover / Hover effect using mouseover and mouseout (Requirement 3c)
+    vibeHoverBox.addEventListener("mouseover", function () {
+      vibeHoverBox.style.backgroundColor = "#0b3d24";
+      vibeHoverBox.style.borderColor = "#141715";
+      vibeHoverBox.style.color = "#ffffff";
+      vibeHoverImg.src = "gmu-campus-2.jpg";
+      vibeHoverCaption.textContent =
+        "Hover Active: Stepping into George Mason's cozy corners!";
+    });
+
+    vibeHoverBox.addEventListener("mouseout", function () {
+      vibeHoverBox.style.backgroundColor = "#f7f9f8";
+      vibeHoverBox.style.borderColor = "#0b3d24";
+      vibeHoverBox.style.color = "#1c211e";
+      vibeHoverImg.src = "gmu-campus-1.jpg";
+      vibeHoverCaption.textContent =
+        "Move your mouse over this box to switch from the outside view of George Mason's campus, then move your cursor away to return.";
+    });
+
+    // Initialize Question 1 on page load
+    renderCurrentRound();
+  </script>
+</body>
+</html>

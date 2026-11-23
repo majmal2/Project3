@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Mason Journey - Senior Capstone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div>
+        <h1 class="site-title">My Mason Journey</h1>
+        <p class="site-subtitle">George Mason University &bull; BSIT Portfolio</p>
+      </div>
+    </div>
+
+    <nav aria-label="Primary Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses &amp; Stack</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="capstone.html" class="active">Capstone</a></li>
+        <li><a href="priority.html">Priority</a></li>
+        <li><a href="campus.html">Campus &amp; Reflection</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero-banner" style="background-image: url('capstone-hero.jpg');" aria-label="Capstone Banner">
+    <div class="hero-banner-content">
+      <h2 class="hero-banner-title">Senior Capstone: Connect onAir</h2>
+      <p class="hero-banner-caption">
+        Designing an AI-assisted profile matching, opportunity discovery, and curator review workflow prototype.
+      </p>
+    </div>
+  </section>
+
+  <main>
+    <!-- Section 1: Right-floated image with text wrapping around it + Sponsor Website link -->
+    <section class="story-section" aria-label="Capstone Overview">
+      <h2 class="section-heading">Project Overview &amp; Sponsor Collaboration</h2>
+
+      <figure class="float-right-card">
+        <img src="capstone-side-1.jpg" alt="Connect onAir project planning and workflow overview">
+        <figcaption class="float-caption">
+        Our Connect onAir capstone team. From left to right: <strong>Khizer</strong>, <strong>Jayce</strong>, <strong>Zain</strong>, <strong>Anthony</strong>, <strong>Marcus</strong>, and <strong>Mahnoor (Me)</strong>.
+        </figcaption>
+      </figure>
+
+      <p>
+        My senior capstone at George Mason University has been one of the biggest highlights of my
+        undergraduate journey. Working alongside a six-person IT team and our project sponsors at
+        <strong>Connect onAir</strong>, we are building an AI-assisted profile matching,
+        opportunity discovery, and curator review workflow prototype designed to help connect the
+        right people with relevant opportunities faster and more accurately.
+      </p>
+      <p>
+        Collaborating directly with industry sponsors gave our team real-world context beyond a
+        typical classroom prompt. Every meeting helped sharpen how our platform handles profile
+        attributes, curator review steps, and clear user feedback.
+      </p>
+      <p>
+        <a
+          class="sponsor-link-btn"
+          href="https://gmuist.onair.cc/category/capstones/connect-onair-team/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit Connect onAir Sponsor Website &rarr;
+        </a>
+      </p>
+    </section>
+
+    <!-- Section 2: Left-floated image with text wrapping around it -->
+    <section class="story-section" aria-label="My Role as Scope Manager and Lead Developer">
+      <h2 class="section-heading">My Role: Scope Manager &amp; Lead Developer</h2>
+
+      <figure class="float-left-card">
+        <img src="capstone-side-2.jpg" alt="System architecture and prototype interface development">
+        <figcaption class="float-caption">
+          Mapping system scope, data flow, and prototype screens across semester milestones.
+        </figcaption>
+      </figure>
+
+      <p>
+        Serving as both <strong>Scope Manager and Lead Developer</strong> challenged me to look at
+        software engineering from two angles at once. As Scope Manager, I worked closely with our
+        team lead, data manager, quality/schedule manager, risk manager, and communications manager
+        to define realistic project boundaries and keep our deliverables aligned with sponsor goals.
+      </p>
+      <p>
+        As Lead Developer, I helped translate those requirements into working prototype screens,
+        structured matching workflows, and clean technical documentation so our team could iterate
+        confidently throughout the academic year.
+      </p>
+    </section>
+
+    <!-- Requirement 3d: Scripted animation using window.setInterval and window.clearInterval -->
+    <section class="media-showcase" aria-label="Capstone Spotlight Viewer">
+      <h2>Capstone Prototype Spotlight (Animated Viewer)</h2>
+      <p>
+        Click <strong>Expand Spotlight</strong> to smoothly animate the capstone workflow preview
+        using <code>window.setInterval()</code>, or click <strong>Shrink Spotlight</strong> to
+        return it to compact size.
+      </p>
+
+      <div class="control-row">
+        <button type="button" id="expand-btn">Expand Spotlight</button>
+        <button type="button" id="shrink-btn" class="secondary-btn">Shrink Spotlight</button>
+      </div>
+
+      <div id="spotlight-box" class="spotlight-box">
+        <img src="capstone-preview.jpg" alt="Connect onAir capstone workflow and matching prototype preview">
+        <p id="spotlight-caption">
+          Connect onAir Prototype: AI-assisted profile matching &amp; curator review workflow.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>My Mason Journey &bull; IT 331 Project 3 Portfolio</p>
+  </footer>
+
+  <script>
+    // Reference to the animated container element
+    const spotlightBox = document.getElementById("spotlight-box");
+
+    // Button references to start the grow and shrink animations
+    const expandBtn = document.getElementById("expand-btn");
+    const shrinkBtn = document.getElementById("shrink-btn");
+
+    // Store the active interval ID so we can safely clear it before starting a new animation
+    let animationTimer = null;
+
+    // Track current width (in pixels) and opacity of the spotlight container
+    let currentWidth = 260;
+    let currentOpacity = 0.65;
+
+    expandBtn.addEventListener("click", function () {
+      // Stop any running animation timer before starting a new interval
+      if (animationTimer !== null) {
+        window.clearInterval(animationTimer);
+      }
+
+      /*
+        Use setInterval to gradually increase width and opacity every 15ms
+        until the spotlight box reaches its full 580px target width.
+      */
+      animationTimer = window.setInterval(function () {
+        if (currentWidth < 580) {
+          currentWidth += 8;
+          currentOpacity = Math.min(1, currentOpacity + 0.01);
+          spotlightBox.style.width = currentWidth + "px";
+          spotlightBox.style.opacity = currentOpacity;
+        } else {
+          // Stop the timer once the target width is reached
+          window.clearInterval(animationTimer);
+          animationTimer = null;
+        }
+      }, 15);
+    });
+
+    shrinkBtn.addEventListener("click", function () {
+      // Stop any running animation timer before starting the shrink interval
+      if (animationTimer !== null) {
+        window.clearInterval(animationTimer);
+      }
+
+      /*
+        Use setInterval to smoothly reduce width and opacity every 15ms
+        until the box returns to its compact 260px starting size.
+      */
+      animationTimer = window.setInterval(function () {
+        if (currentWidth > 260) {
+          currentWidth -= 8;
+          currentOpacity = Math.max(0.65, currentOpacity - 0.01);
+          spotlightBox.style.width = currentWidth + "px";
+          spotlightBox.style.opacity = currentOpacity;
+        } else {
+          // Stop the timer once the compact width is reached
+          window.clearInterval(animationTimer);
+          animationTimer = null;
+        }
+      }, 15);
+    });
+  </script>
+</body>
+</html>

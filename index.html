@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Mason Journey - Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div>
+        <h1 class="site-title">My Mason Journey</h1>
+        <p class="site-subtitle">George Mason University &bull; BSIT Portfolio</p>
+      </div>
+    </div>
+
+    <nav aria-label="Primary Navigation">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="courses.html">Courses &amp; Stack</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="capstone.html">Capstone</a></li>
+        <li><a href="priority.html">Priority</a></li>
+        <li><a href="campus.html">Campus &amp; Reflection</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Full-width Hero Banner with your own photo (replace mason-hero.jpg with your image) -->
+  <section class="hero-banner" style="background-image: url('mason-hero.jpg');" aria-label="Featured Banner">
+    <div class="hero-banner-content">
+      <h2 class="hero-banner-title">Code, Campus &amp; Capstone</h2>
+      <p class="hero-banner-caption">
+        Looking back at my Information Technology experience, projects, and milestones at George Mason University.
+      </p>
+    </div>
+  </section>
+
+  <main>
+
+    <p class="lead-intro">
+Transferring to George Mason University hasn’t just given me a career path, it has given me so much to learn and experience. It has honestly been an eye-opening chapter where I’ve pushed past what I thought I was capable of. When I first picked Information Technology, I barely knew anything about computers or coding, I mostly chose it out of peer pressure, never expecting it to become a real passion. Once I started taking classes at Mason, I saw how huge the potential of IT really is, and I fell in love with what I was learning and building on my own. Add in the campus buildings, the atmosphere, and the people I’ve met along the way, and the whole experience has just been amazing.    </p>
+
+    <h2 class="section-heading">Explore My Experience</h2>
+    <div class="card-grid">
+      <article class="card">
+        <h3>Classes &amp; Code Learned</h3>
+        <p>
+          From core programming and web frameworks to mobile apps and cloud
+          deployment tools, explore the technical stack I have built across my coursework.
+        </p>
+        <a href="courses.html">Explore Courses &amp; Stack &rarr;</a>
+      </article>
+
+      <article class="card">
+        <h3>Projects &amp; Senior Capstone</h3>
+        <p>
+          Take a closer look at the web and mobile applications I have built alongside my work as
+          Scope Manager and Lead Developer for my senior capstone.
+        </p>
+        <a href="capstone.html">View Capstone &rarr;</a>
+      </article>
+
+      <article class="card">
+        <h3>Interactive Priority Poster</h3>
+        <p>
+          Rank your own education and career priorities, customize poster colors and borders, and
+          stamp stickers onto your custom board.
+        </p>
+        <a href="poster.html">Open Priority Poster &rarr;</a>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <p>My Mason Journey &bull; IT 331 Project 3 Portfolio</p>
+  </footer>
+
+  <script>
+    // Reference to the page body so we can update background and text colors dynamically
+    const pageBody = document.body;
+
+    // Reference to the main content area for adjusting reading font size
+    const mainContent = document.querySelector("main");
+
+    // Reference to the intro paragraph so its color stays legible in dark mode
+    const leadIntro = document.querySelector(".lead-intro");
+
+    // Track current font size in pixels for step-by-step resizing
+    let currentFontSize = 16;
+
+    // Button references for switching themes and text sizes
+    const lightThemeBtn = document.getElementById("light-theme-btn");
+    const darkThemeBtn = document.getElementById("dark-theme-btn");
+    const largerTextBtn = document.getElementById("larger-text-btn");
+    const resetStyleBtn = document.getElementById("reset-style-btn");
+
+    lightThemeBtn.addEventListener("click", function () {
+      // Apply the default crisp white and charcoal palette
+      pageBody.style.backgroundColor = "#ffffff";
+      pageBody.style.color = "#1c211e";
+      leadIntro.style.color = "#252b27";
+    });
+
+    darkThemeBtn.addEventListener("click", function () {
+      // Switch to a sleek charcoal black background with light gray-white text
+      pageBody.style.backgroundColor = "#141715";
+      pageBody.style.color = "#f2f5f3";
+      leadIntro.style.color = "#e2e8e4";
+    });
+
+    largerTextBtn.addEventListener("click", function () {
+      /*
+        Use an if/else check so text increases smoothly without becoming
+        too oversized for the page layout.
+      */
+      if (currentFontSize < 22) {
+        currentFontSize += 2;
+        mainContent.style.fontSize = currentFontSize + "px";
+      } else {
+        mainContent.style.fontSize = "22px";
+      }
+    });
+
+    resetStyleBtn.addEventListener("click", function () {
+      // Restore default white palette and 16px text size
+      currentFontSize = 16;
+      pageBody.style.backgroundColor = "#ffffff";
+      pageBody.style.color = "#1c211e";
+      leadIntro.style.color = "#252b27";
+      mainContent.style.fontSize = currentFontSize + "px";
+    });
+  </script>
+</body>
+</html>

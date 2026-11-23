@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Mason Journey - Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div>
+        <h1 class="site-title">My Mason Journey</h1>
+        <p class="site-subtitle">George Mason University &bull; BSIT Portfolio</p>
+      </div>
+    </div>
+
+    <nav aria-label="Primary Navigation">
+      <ul>
+        <li><a href="index.html" >Home</a></li>
+        <li><a href="courses.html">Courses &amp; Stack</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="capstone.html">Capstone</a></li>
+        <li><a href="priority.html">Priority</a></li>
+        <li><a href="campus.html" class="active">Campus &amp; Reflection</a></li>
+      </ul>
+    </nav>
+  </header>
+ <!-- Full-width Hero Banner with your own photo (replace mason-hero.jpg with your image) -->
+  <section class="hero-banner" style="background-image: url('mason-hero.jpg');" aria-label="Featured Banner">
+    <div class="hero-banner-content">
+      <h2 class="hero-banner-title">Places Explored Across Mason Campuses</h2>
+      <p class="hero-banner-caption">
+        A look back at my George Mason University experience across the Science & Technology campuses, and a reflection on my journey so far.
+      </p>
+    </div>
+  </section>
+  <main>
+    <section class="hero-box">
+      <h2>Places Explored Across Mason Campuses</h2>
+      <p>
+        My George Mason experience has spanned both the <strong>Fairfax campus</strong> and the
+        <strong>Science and Technology Campus</strong> in Manassas. Moving between lectures, group
+        study sessions, fitness workouts, and campus events made each semester feel full and
+        memorable.
+      </p>
+    </section>
+
+    <!-- Requirement 3c: Rollover effect using mouseover and mouseout -->
+    <section class="media-showcase" aria-label="Campus Photo Rollover">
+      <h2>Campus Spot Rollover Preview</h2>
+      <p>
+        Move your mouse over the photo below to see an alternate view and note from campus, then
+        move your cursor away to return to the original view.
+      </p>
+
+      <img
+        id="campus-rollover-img"
+        class="rollover-img"
+        src="gmu-campus-1.jpg"
+        alt="George Mason University campus scene in Fairfax or Manassas"
+      >
+      <p id="campus-rollover-caption">
+        <strong>Default View:</strong> Everyday moments around George Mason University between classes and study blocks.
+      </p>
+    </section>
+
+    <section aria-label="Campus Highlights">
+      <h2>Favorite Spots &amp; Routines</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>The Source - SciTech Campus</h3>
+          <p>
+            Heading straight to the MindSpa Massage chair in the Source after attending classes, meeting up with classmates for group work, and took part in campus
+            gatherings and student life around the heart of the SciTech campus.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Freedom Aquatic Center</h3>
+          <p>
+            Spent time on the Science and Technology Campus in Manassas and balanced busy study
+            schedules with active gym and recreational workouts.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="hero-box" style="margin-top: 24px;" aria-label="Reflection Looking Ahead">
+      <h2>Looking Back &amp; Heading Toward Spring 2027</h2>
+      <p>
+        Looking back at how much I have grown since transferring to Mason, I am proud of the
+        projects I have shipped, the teamwork behind my senior capstone, and the resilience I
+        built juggling coursework, work, and life. Heading toward graduation in Spring 2027, I am
+        excited to bring web development, software engineering, and problem-solving skills into my
+        next chapter.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>My Mason Journey - IT 331 Project 3 Portfolio</p>
+  </footer>
+
+  <script>
+    // Reference to the rollover image element on the page
+    const campusImg = document.getElementById("campus-rollover-img");
+
+    // Reference to the caption paragraph paired with the rollover image
+    const campusCaption = document.getElementById("campus-rollover-caption");
+
+    // File paths for the primary and alternate campus images
+    const defaultImgSrc = "gmu-campus-1.jpg";
+    const alternateImgSrc = "gmu-campus-2.jpg";
+
+    campusImg.addEventListener("mouseover", function () {
+      // Swap to the alternate campus photo and highlight the border on hover
+      campusImg.src = alternateImgSrc;
+      campusImg.style.borderColor = "#3b2316";
+      campusCaption.innerHTML =
+        "<strong>Hover View:</strong> Everyday moments around George Mason University between classes and study blocks";
+    });
+
+    campusImg.addEventListener("mouseout", function () {
+      // Restore the original image and default caption when the cursor leaves
+      campusImg.src = defaultImgSrc;
+      campusImg.style.borderColor = "#6b422a";
+      campusCaption.innerHTML =
+        "<strong>Default View:</strong> Beautiful campus scenes and student life moments.";
+    });
+  </script>
+</body>
+</html>
